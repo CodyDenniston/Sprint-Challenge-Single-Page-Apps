@@ -15,6 +15,7 @@ margin-bottom: 40px;
 
 export default function CharacterCard(props) {
   
+  
   return (
     <div>
       <Card>

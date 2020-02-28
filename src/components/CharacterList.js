@@ -4,7 +4,7 @@ import CharacterCard from "./CharacterCard";
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
-  const [character, setCharacter] = useState([])
+  const [Character, setCharacter] = useState([])
 
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
@@ -24,7 +24,7 @@ export default function CharacterList() {
    
  
     <section className="character-list">
-      {character.map((c, index) => {
+      {Character.map((c, index) => {
            return <CharacterCard key={index} name={c.name} status={c.status} species={c.species} img={c.image} />
         
         })}
