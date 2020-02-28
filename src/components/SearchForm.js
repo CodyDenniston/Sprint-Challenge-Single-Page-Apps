@@ -5,10 +5,11 @@ export default function SearchForm( props ) {
   const [search, setSearch] = useState('');
   const [results, setResults] = useState([]);
 
-  console.log(props.Character)
+  const characters = props.charList;
+  console.log(props.characters)
  
-  useEffect((props) => {
-    const searchResults = props.Character.filter( character =>
+  useEffect(() => {
+    const searchResults = characters.filter( character =>
       character.name.includes( search )
     );
     setResults( searchResults );
@@ -36,9 +37,10 @@ export default function SearchForm( props ) {
     </form>
      
     <div className="character-list">
-      {results.map((c, index) => (
-        <CharacterCard key={index} c={c} />
-      ))}
+      {results.map((c, index) => {
+           return <CharacterCard key={index} name={c.name} status={c.status} species={c.species} img={c.image} />
+        
+        })}
       </div>
 
     </section>

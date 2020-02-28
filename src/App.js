@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Header from "./components/Header.js";
 import CharacterCard from "./components/CharacterCard"
 import CharacterList from "./components/CharacterList"
@@ -14,6 +14,7 @@ import {
 
 
 export default function App() {
+  const [charList, setCharList] = useState([]);
   
   return (
     <main>
@@ -23,13 +24,12 @@ export default function App() {
         <WelcomePage/>
         </Route>
          
-        <Route exact path="/CharacterList">
-          <CharacterList />
-        </Route>
+        <Route exact path='/CharacterList' render={ ( props ) =>
+          <CharacterList  { ...props } setCharList={setCharList} charList={charList} /> }/>
+      
 
-        <Route exact path="/SearchForm">
-          <SearchForm />
-        </Route>
+        <Route exact path="/SearchForm"render={ ( props ) =>
+        <SearchForm { ...props } charList={charList} /> } />
       </Switch>
      
     </main>
