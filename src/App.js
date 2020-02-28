@@ -26,6 +26,10 @@ export default function App() {
         <Route exact path="/CharacterList">
           <CharacterList />
         </Route>
+
+        <Route exact path="/SearchForm">
+          <SearchForm />
+        </Route>
       </Switch>
      
     </main>
